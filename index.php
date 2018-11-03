@@ -27,10 +27,21 @@
         <?php
         $bdd = new PDO('mysql:host=localhost;dbname=sncf;charset=utf8', 'root', '');
             
-        $reponse= $bdd->query("SELECT * FROM ag");
+        //$reponse= $bdd->query("SELECT * FROM sncf");
+
+        // Tu t'es trompé sur le nom de la table
+        $reponse= $bdd->query("SELECT * FROM agent");
             
         $resultat = $reponse->fetch();
-        echo $resultat['ID'.'NOM'.'PRENOM'];
+
+        // Cette ligne ne veut rien dire
+        //echo $resultat['CODE'.'NOM'.'PRENOM'];
+
+        // Pour visualiser ce qu'il y a dans $resultat
+        echo var_dump($resultat);
+
+        // Affiche du code + nom + prénom
+        echo $resultat['code']. " ". $resultat['nom']. " ".$resultat['prenom']
         ?>
 
 
