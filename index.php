@@ -5,16 +5,14 @@
         <h1>Liste des activités</h1>
     </head>
     <body>
-        <FORM>
-        <SELECT name="nom" size="1">
-        <OPTION>
-        <OPTION>Tennis
-        <OPTION>Football
-        <OPTION>Basketball
-        <OPTION>Boxe
-        </SELECT>
-        </FORM>
-        <form method="post">
+    <select name="activite"  onchange="change(this.value)">
+    <option value="0"></option>
+    <option value="ten">Tennis</option>
+    <option value="2">Jardinage</option>
+    <option value="3">Football</option>
+    </select>
+    <br>
+    <br>
         Les formations 
         <br>
         <input type="radio" name="info" value="A">A
@@ -23,31 +21,39 @@
         <br>
         <input type="radio" name="info" value="C">C
         <br>
+        <br>
 
         <?php
+        
         $bdd = new PDO('mysql:host=localhost;dbname=sncf;charset=utf8', 'root', '');
-            
-        //$reponse= $bdd->query("SELECT * FROM sncf");
-
-        // Tu t'es trompé sur le nom de la table
-        $reponse= $bdd->query("SELECT * FROM agent");
-            
+                    
+        $reponse= $bdd->query("SELECT * FROM ag");
+        
         $resultat = $reponse->fetch();
-
-        // Cette ligne ne veut rien dire
-        //echo $resultat['CODE'.'NOM'.'PRENOM'];
-
-        // Pour visualiser ce qu'il y a dans $resultat
-        echo var_dump($resultat);
-
-        // Affiche du code + nom + prénom
-        echo $resultat['code']. " ". $resultat['nom']. " ".$resultat['prenom']
+        
         ?>
 
+            <table width="80%" border="1">
+            <tr>
+            <td> Checkbox </td>
+            <td>ID</td>
+            <td>NOM</td>
+            <td>PRENOM</td>  
+            </tr>
+            <?php  while($donnees=$reponse->fetch()) {  ?>
+            <tr> 
+            <td><input type="checkbox"  value="X"> </td>
+            <td> <?php echo ($donnees['ID']);?> </td>
+            <td> <?php echo($donnees['NOM']); ?> </td>
+            <td> <?php echo ($donnees['PRENOM']);?> </td>
+            </tr>
 
+            <?php } ?>
+
+            
         
+            </table>
+
+    
     </body>
 </html>
-
-
-

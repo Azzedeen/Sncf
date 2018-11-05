@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 03 nov. 2018 à 18:07
+-- Généré le :  Dim 04 nov. 2018 à 20:23
 -- Version du serveur :  10.1.36-MariaDB
 -- Version de PHP :  7.2.10
 
@@ -39,8 +39,19 @@ CREATE TABLE `ag` (
 --
 
 INSERT INTO `ag` (`ID`, `NOM`, `PRENOM`) VALUES
+(0, '--', '--'),
 (1, 'Dupont', 'Jean'),
-(2, 'Marc', 'Lala');
+(2, 'Mickey', 'Mouse');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `ag`
+--
+ALTER TABLE `ag`
+  ADD PRIMARY KEY (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
