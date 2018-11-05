@@ -7,7 +7,7 @@
     <body>
     <select name="activite"  onchange="change(this.value)">
     <option value="0"></option>
-    <option value="ten">Tennis</option>
+    <option value="1">Tennis</option>
     <option value="2">Jardinage</option>
     <option value="3">Football</option>
     </select>
@@ -27,6 +27,7 @@
         
         $bdd = new PDO('mysql:host=localhost;dbname=sncf;charset=utf8', 'root', '');
                     
+        //if(($_POST['activite'] == '1') AND ($_POST['info'] == 'A'){ 
         $reponse= $bdd->query("SELECT * FROM ag");
         
         $resultat = $reponse->fetch();
